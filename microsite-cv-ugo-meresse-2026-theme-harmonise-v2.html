@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ugo Meresse — Microsite CV</title>
+  <meta name="description" content="Micro site CV d'Ugo Meresse — Gouvernance des données, pilotage stratégique et data." />
+  <style>
+    :root{
+      --blue:#112e61; --green:#eb5a6a; --primary:#112e61; --primary-ink:#112e61;
+      --bg:#f7f3f1; --text:#112e61; --muted:#53627a; --chip:#fdecef; --card:#ffffff;
+      --glass: rgba(255,255,255,.6); --shadow:0 14px 30px rgba(15,23,42,.08); --radius:20px;
+    }
+    [data-theme="dark"]{
+      --bg:#07152d; --text:#f8f3f1; --muted:#c7c1c5; --card:#0d2347; --glass: rgba(255,255,255,.6);
+      --chip:#0b2130; --shadow:0 16px 34px rgba(2,6,23,.55);
+    }
+    [data-theme="dark"] .btn{color:#e5eefc;}
+    [data-theme="dark"] .btn.toggle{background:var(--card);color:#e5eefc;border:1px solid rgba(148,163,184,.35);}
+    [data-theme="dark"] .btn.ghost{color:#e5eefc;border-color:rgba(229,238,252,.35);}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+    a{color:var(--blue);text-decoration-color:rgba(17,46,97,.35);text-underline-offset:3px}
+    .wrap{max-width:1100px;margin:auto;padding:28px}
+    header{position:relative;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow);background:linear-gradient(135deg,rgba(17,46,97,.08),rgba(235,90,106,.08))}
+    header::before,header::after{content:"";position:absolute;inset:auto -15% -40% -15%;height:140%;background:radial-gradient(800px 380px at 90% 10%,rgba(17,46,97,.22),transparent 60%),radial-gradient(700px 360px at 0% 120%,rgba(235,90,106,.22),transparent 60%);filter:blur(40px);pointer-events:none;animation:float 16s ease-in-out infinite alternate}
+    header::after{inset:-40% -10% auto -10%;transform:rotate(180deg);opacity:.8}
+    @keyframes float{to{transform:translateY(-12px)}}
+    .head{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:40px 36px;align-items:center}
+    .title-block{display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+    .title-block h1{font-size:clamp(30px,4.6vw,56px);letter-spacing:.4px;margin:.1rem 0;line-height:1.05}
+    .gradient-text{background:linear-gradient(90deg,var(--blue),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .subtitle{font-weight:700;color:var(--primary-ink);margin-top:.35rem;opacity:.9}
+    .about{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .chip{background:linear-gradient(180deg,rgba(17,46,97,.10),rgba(235,90,106,.10));padding:8px 12px;border-radius:999px;font-size:14px;border:1px solid rgba(17,46,97,.18)}
+    .profile{display:flex;align-items:center;justify-content:center}
+    .profile-frame{width:clamp(200px,30vw,360px);aspect-ratio:4/5;border-radius:20px;overflow:hidden;padding:6px;background:linear-gradient(135deg,var(--blue),var(--green));box-shadow:0 10px 20px rgba(15,23,42,.15);transition:transform .3s ease,box-shadow .3s ease}
+    .profile-frame:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(15,23,42,.25)}
+    .profile-pic{width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;background-color:var(--card)}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin:0 36px 28px 36px}
+    .btn{appearance:none;border:0;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;text-decoration:none;display:inline-block}
+    .btn.primary{background:linear-gradient(135deg,var(--blue),var(--green));color:white;box-shadow:0 10px 24px rgba(17,46,97,.25)}
+    .btn.primary:hover{transform:translateY(-2px);filter:saturate(1.05);box-shadow:0 14px 30px rgba(235,90,106,.28)}
+    .btn.ghost{background:transparent;color:var(--blue);border:2px solid rgba(17,46,97,.35)}
+    .btn.ghost:hover{transform:translateY(-2px);border-color:rgba(235,90,106,.55)}
+    .btn.toggle{background:var(--card);border:1px solid rgba(148,163,184,.35)}
+    main{margin-top:28px;display:grid;grid-template-columns:2fr 1fr;gap:28px}
+    section{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;position:relative}
+    section h2{margin:0 0 12px;font-size:22px;color:var(--blue);letter-spacing:.3px}
+    section h2::after{content:"";display:block;height:3px;width:64px;background:linear-gradient(90deg,var(--blue),var(--green));border-radius:999px;margin-top:6px;opacity:.9}
+    .xp-controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    .xp{display:grid;gap:12px}
+    details.xp-item{border:1px solid rgba(148,163,184,.25);background:linear-gradient(180deg,rgba(17,46,97,.04),rgba(235,90,106,.04));border-radius:16px}
+    details.xp-item[open]{background:linear-gradient(180deg,rgba(17,46,97,.06),rgba(235,90,106,.06))}
+    details.xp-item + details.xp-item{margin-top:6px}
+    summary.xp-head{list-style:none;display:grid;grid-template-columns:140px 1fr auto;gap:14px;align-items:center;padding:14px 16px;cursor:pointer}
+    summary.xp-head::-webkit-details-marker{display:none}
+    .when{color:var(--muted);font-size:14px}
+    .role{font-weight:800}
+    .org{color:var(--green);font-weight:700}
+    .chev{width:18px;height:18px;opacity:.7;transition:transform .25s ease}
+    details[open] .chev{transform:rotate(180deg)}
+    .xp-body{padding:0 16px 14px 16px}
+    .bullets{margin:.45rem 0 0 0;padding-left:18px}
+    .desc{margin:.25rem 0 .45rem 0;color:var(--text);line-height:1.48}
+    @media (prefers-reduced-motion:no-preference){details.xp-item[open] .xp-body{animation:fadeIn .22s ease}@keyframes fadeIn{from{opacity:0;transform:translateY(-2px)}to{opacity:1;transform:none}}details.xp-item{transition:background .2s ease,border-color .2s ease}summary.xp-head:hover{filter:saturate(1.04)}}
+    .cols{display:grid;gap:18px}.cols.two{grid-template-columns:1fr 1fr}.taglist{display:flex;flex-wrap:wrap;gap:8px}.tag{background:linear-gradient(180deg,rgba(17,46,97,.10),rgba(235,90,106,.10));padding:8px 10px;border-radius:10px;font-size:14px;border:1px solid rgba(17,46,97,.18)}.cardy{display:grid;gap:12px}.micro{background:linear-gradient(180deg,rgba(17,46,97,.06),rgba(235,90,106,.06));border:1px solid rgba(148,163,184,.25);padding:14px;border-radius:12px;line-height:1.45}
+    footer{margin:22px 0 40px;color:var(--muted);text-align:center}
+    @media (max-width:900px){.head{grid-template-columns:1fr;justify-items:center;text-align:center}.title-block{align-items:center}main{grid-template-columns:1fr}summary.xp-head{grid-template-columns:1fr auto;gap:10px}.when{order:2}.cols.two{grid-template-columns:1fr}.cta{justify-content:center}}
+  
+    /* Harmonisation complète thème CV PDF */
+    :root{
+      --blue:#112e61;
+      --green:#eb5a6a;
+      --primary:#112e61;
+      --primary-ink:#112e61;
+      --bg:#f7f3f1;
+      --text:#112e61;
+      --muted:#53627a;
+      --chip:#fdecef;
+      --card:#ffffff;
+      --shadow:0 14px 30px rgba(17,46,97,.10);
+    }
+    [data-theme="dark"]{
+      --bg:#07152d;
+      --text:#f8f3f1;
+      --muted:#c7c1c5;
+      --card:#0d2347;
+      --chip:#261d35;
+      --shadow:0 16px 34px rgba(0,0,0,.45);
+    }
+    header{
+      background:linear-gradient(135deg, rgba(17,46,97,.08), rgba(235,90,106,.12)) !important;
+    }
+    header::before, header::after{
+      background:
+        radial-gradient(800px 380px at 90% 10%, rgba(17,46,97,.22), transparent 60%),
+        radial-gradient(700px 360px at 0% 120%, rgba(235,90,106,.24), transparent 60%) !important;
+    }
+    .gradient-text{
+      background:linear-gradient(90deg,#112e61,#eb5a6a) !important;
+      -webkit-background-clip:text !important;
+      background-clip:text !important;
+      color:transparent !important;
+    }
+    .subtitle, .org{
+      color:#eb5a6a !important;
+    }
+    section h2{
+      color:#112e61 !important;
+    }
+    section h2::after,
+    .btn.primary,
+    .profile-frame{
+      background:linear-gradient(135deg,#112e61,#eb5a6a) !important;
+    }
+    .chip, .tag, .micro, details.xp-item{
+      background:linear-gradient(180deg, rgba(17,46,97,.055), rgba(235,90,106,.075)) !important;
+      border-color:rgba(17,46,97,.16) !important;
+    }
+    details.xp-item[open]{
+      background:linear-gradient(180deg, rgba(17,46,97,.075), rgba(235,90,106,.10)) !important;
+      border-color:rgba(235,90,106,.24) !important;
+    }
+    a, .btn.ghost{
+      color:#112e61 !important;
+    }
+    .btn.ghost{
+      border-color:rgba(17,46,97,.35) !important;
+    }
+    .btn.ghost:hover{
+      border-color:rgba(235,90,106,.55) !important;
+    }
+    .btn.primary{
+      box-shadow:0 10px 24px rgba(17,46,97,.22) !important;
+    }
+    .btn.primary:hover{
+      box-shadow:0 14px 30px rgba(235,90,106,.26) !important;
+    }
+    [data-theme="dark"] a,
+    [data-theme="dark"] .btn.ghost{
+      color:#f8f3f1 !important;
+    }
+    [data-theme="dark"] section h2{
+      color:#f8f3f1 !important;
+    }
+    [data-theme="dark"] .subtitle,
+    [data-theme="dark"] .org{
+      color:#ff8795 !important;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="head">
+        <div class="title-block">
+          <h1><span class="gradient-text">MERESSE</span> UGO</h1>
+          <div class="subtitle">Gouvernance des données | Pilotage stratégique</div>
+          <div class="about">
+            <div class="chip">03.05.1995</div>
+            <div class="chip">Permis B</div>
+            <div class="chip">Clermont-Ferrand</div>
+            <div class="micro">Curieux de nature, j’utilise la donnée pour comprendre les activités, les organisations et les enjeux qui les entourent.<br><br>J’accompagne les métiers dans la transformation des données en informations utiles à la décision, au pilotage et à l’amélioration continue.</div>
+          </div>
+        </div>
+        <div class="profile">
+          <div class="profile-frame">
+            <img class="profile-pic" alt="Photo d'Ugo Meresse" src="https://media.licdn.com/dms/image/v2/D4E22AQE959wZkODj1Q/feedshare-shrink_1280/feedshare-shrink_1280/0/1732549316099?e=1762992000&v=beta&t=JOruCxze0dmM1bjLtuWeDSLRa05wbBgprK4hHOVHFT8"/>
+          </div>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Me contacter</a>
+        <a class="btn ghost" href="#cv">Voir le CV</a>
+        <button class="btn toggle" type="button" id="modeToggle">Mode sombre</button>
+      </div>
+    </header>
+
+    <main id="cv">
+      <section>
+        <h2>Expériences professionnelles</h2>
+        <div class="xp-controls">
+          <button class="btn toggle" id="expandAll" type="button">Tout développer</button>
+          <button class="btn toggle" id="collapseAll" type="button">Tout réduire</button>
+        </div>
+        <div class="xp">
+          <details class="xp-item" open>
+            <summary class="xp-head">
+              <div class="when">Depuis août 2025</div>
+              <div><div class="role">Head of Insights & Data (Études & Data)</div><div class="org">Clermont School of Business</div></div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="xp-body">
+              <p class="desc"><strong>Responsable de la gouvernance des données de l’établissement.</strong><br>J’accompagne l’ensemble des équipes dans la structuration, la fiabilisation et la valorisation de leurs données afin de renforcer la qualité de l’information, la prise de décision et la performance collective.</p>
+              <ul class="bullets">
+                <li>Création d’un dispositif de gouvernance des données en lien avec l’ensemble des services de l’école et l’IT.</li>
+                <li>Accompagnement des équipes dans l’adoption de pratiques communes de gestion et de qualité des données.</li>
+                <li>Conception de tableaux de bord et démocratisation de l’accès à la donnée pour les équipes métiers.</li>
+                <li>Coordination de la production des données stratégiques utilisées pour les classements, rapports institutionnels, enquêtes et instances de pilotage.</li>
+                <li>Analyse des données et accompagnement des directions dans l’identification d’actions d’amélioration continue et de transformation.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="xp-item">
+            <summary class="xp-head">
+              <div class="when">Depuis juillet 2025</div>
+              <div><div class="role">Pilote du CODEX Classements</div><div class="org">Conférence des Directeurs des Écoles Françaises de Management</div></div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="xp-body">
+              <p class="desc">Pilotage d’une communauté nationale d’experts en classements et performance institutionnelle.</p>
+              <ul class="bullets">
+                <li>Animation d’un réseau de responsables classements issus des Grandes Écoles de Management.</li>
+                <li>Relations avec les médias et organismes de classement français et internationaux.</li>
+                <li>Analyse et accompagnement des évolutions méthodologiques.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="xp-item">
+            <summary class="xp-head">
+              <div class="when">Janvier 2023 – août 2024</div>
+              <div><div class="role">Responsable Enquêtes, Études & Classements</div><div class="org">Clermont School of Business</div></div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="xp-body">
+              <p class="desc">Responsable de la collecte, de l’analyse et de l’exploitation des données reflétant l’activité de l’école afin d’optimiser son positionnement dans les classements.</p>
+              <ul class="bullets">
+                <li>Modernisation des dispositifs d’enquête via un partenariat avec Ipsos.</li>
+                <li>Analyse des méthodologies de classement et optimisation des données stratégiques.</li>
+                <li>Identification de leviers d’amélioration et accompagnement des équipes dans leur mise en œuvre.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="xp-item">
+            <summary class="xp-head">
+              <div class="when">Septembre 2022 – décembre 2022</div>
+              <div><div class="role">Chargé de Recrutement France</div><div class="org">Clermont School of Business</div></div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="xp-body"><p class="desc">Promotion des programmes Master de l’école auprès des étudiants, des familles et des établissements partenaires.</p></div>
+          </details>
+
+          <details class="xp-item">
+            <summary class="xp-head">
+              <div class="when">Depuis septembre 2022</div>
+              <div><div class="role">Enseignant vacataire</div><div class="org">UFR STAPS Clermont-Ferrand</div></div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="xp-body">
+              <ul class="bullets"><li>Enseignement du module « Outils du Management ».</li><li>Licence 2 Management du Sport.</li></ul>
+            </div>
+          </details>
+
+          <details class="xp-item">
+            <summary class="xp-head">
+              <div class="when">2018 – 2022</div>
+              <div><div class="role">Président Fondateur</div><div class="org">Wheel’In Sport SAS</div></div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="xp-body">
+              <p class="desc">Création et direction d’un Bike Park Indoor de 4000 m² (loisirs sportifs, restauration, séminaires).</p>
+              <ul class="bullets"><li>Investissement supérieur à 1 M€ et management d’une équipe de 7 collaborateurs.</li><li>Développement d’un équipement accueillant plus de 14 000 visiteurs en 2021.</li><li>Lauréat du Trophée des Entreprises La Montagne 2021.</li></ul>
+            </div>
+          </details>
+
+          <details class="xp-item">
+            <summary class="xp-head">
+              <div class="when">2014 – aujourd’hui<br>(sélection)</div>
+              <div><div class="role">Autres expériences</div><div class="org">Freelance, VVX, Huttopia, etc.</div></div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="xp-body">
+              <ul class="bullets">
+                <li>Graphiste Freelance (depuis 2014).</li>
+                <li>Chargé marketing & événementiel – Volvic Volcanic Expérience (2019).</li>
+                <li>Adjoint responsable restauration – Huttopia & Cie (2019).</li>
+                <li>Équipier polyvalent & pizzaiolo – Huttopia & Cie (2016–2018).</li>
+                <li>Agent de quai – DB Schenker (2014–2015).</li>
+                <li>Ouvrier agricole – EARL du Marais (2007–2013).</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section>
+        <h2>Formation</h2>
+        <div class="cardy">
+          <div class="micro"><strong>2024</strong> — Certification BI & Data, <em class="org">Clermont School of Business</em></div>
+          <div class="micro"><strong>2020</strong> — Master en Management (PGE), <em class="org">Clermont School of Business</em></div>
+          <div class="micro"><strong>2019</strong> — TOEIC 960</div>
+          <div class="micro"><strong>2018</strong> — Licence Management du Sport, <em class="org">UFR STAPS Clermont-Ferrand</em></div>
+          <div class="micro"><strong>2013-2014</strong> — Rotary Youth Exchange, <em class="org">Finlande</em></div>
+        </div>
+
+        <h2 style="margin-top:22px">Compétences</h2>
+        <div class="cols two">
+          <div>
+            <h3 style="margin:6px 0 6px;color:var(--muted);font-size:16px">Outils</h3>
+            <div class="taglist"><span class="tag">Data Visualisation</span><span class="tag">Strategy</span><span class="tag">Power BI</span><span class="tag">ChatGPT</span><span class="tag">Copilot</span><span class="tag">Skeepers</span><span class="tag">Sphinx</span><span class="tag">Forms</span><span class="tag">Office 365</span><span class="tag">Suite Adobe</span><span class="tag">Final Cut</span></div>
+          </div>
+          <div>
+            <h3 style="margin:6px 0 6px;color:var(--muted);font-size:16px">Stratégie</h3>
+            <div class="taglist"><span class="tag">Entrepreneuriat</span><span class="tag">Conduite du changement</span><span class="tag">Data Governance</span><span class="tag">MDM</span><span class="tag">Data Quality</span><span class="tag">Acculturation Data</span><span class="tag">Pilotage de la performance</span><span class="tag">Gestion de projet transverse</span></div>
+          </div>
+        </div>
+
+        <div class="cols two" style="margin-top:16px">
+          <div>
+            <h3 style="margin:6px 0 6px;color:var(--muted);font-size:16px">Langues</h3>
+            <div class="taglist"><span class="tag"><strong>Anglais courant</strong></span><span class="tag">Allemand</span><span class="tag">Finnois</span></div>
+          </div>
+          <div id="contact">
+            <h3 style="margin:6px 0 6px;color:var(--muted);font-size:16px">Coordonnées</h3>
+            <div class="cardy"><div class="micro">📧 <a href="mailto:ugo.meresse@hotmail.fr">ugo.meresse@hotmail.fr</a></div><div class="micro">📞 <a href="tel:+33673752319">06 73 75 23 19</a></div><div class="micro">📍 Clermont-Ferrand</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Bénévolat</h2>
+        <div class="xp">
+          <details class="xp-item"><summary class="xp-head"><div class="when">Depuis 2018</div><div><div class="role">Membre du conseil d’administration</div><div class="org">Clermont School of Business Alumni</div></div></summary></details>
+          <details class="xp-item"><summary class="xp-head"><div class="when">2014 – 2021</div><div><div class="role">Entraîneur VTT</div><div class="org">XC63</div></div></summary></details>
+          <details class="xp-item"><summary class="xp-head"><div class="when">2017 – 2018</div><div><div class="role">Vice-président communication</div><div class="org">BDE STAPS Clermont</div></div></summary></details>
+          <details class="xp-item"><summary class="xp-head"><div class="when">Depuis 2007</div><div><div class="role">Bénévolat pour diverses œuvres & événements</div><div class="org">Téléthon, Restos du Cœur, championnats de ski & VTT</div></div></summary></details>
+        </div>
+      </section>
+    </main>
+
+    <footer>© <script>document.write(new Date().getFullYear())</script> Ugo Meresse — Microsite CV.</footer>
+  </div>
+
+  <script>
+    const toggle=document.getElementById('modeToggle');
+    const root=document.documentElement;
+    const isDark=()=>root.getAttribute('data-theme')==='dark';
+    const setDark=(v)=>{root.setAttribute('data-theme',v?'dark':'light');toggle.textContent=v?'Mode clair':'Mode sombre';}
+    toggle?.addEventListener('click',()=>setDark(!isDark()));
+    try{const saved=localStorage.getItem('theme');if(saved){setDark(saved==='dark');}toggle?.addEventListener('click',()=>localStorage.setItem('theme',isDark()?'dark':'light'));}catch(e){}
+    const expandAllBtn=document.getElementById('expandAll');
+    const collapseAllBtn=document.getElementById('collapseAll');
+    const allDetails=()=>Array.from(document.querySelectorAll('details.xp-item'));
+    expandAllBtn?.addEventListener('click',()=>allDetails().forEach(d=>d.open=true));
+    collapseAllBtn?.addEventListener('click',()=>allDetails().forEach(d=>d.open=false));
+  </script>
+
+<style>
+/* Force le texte du bouton principal en blanc */
+.btn.primary,
+.btn.primary:visited,
+.btn.primary:hover,
+.btn.primary:active {
+    color: #ffffff !important;
+}
+</style>
+
+</body>
+</html>
