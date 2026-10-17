@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ugo Meresse — Gouvernance des données & performance</title>
-  <meta name="description" content="Micro site CV d'Ugo Meresse — Gouvernance des données, pilotage stratégique et data." />
+  <meta name="description" content="CV interactif d’Ugo Meresse, Head of Insights &amp; Data : gouvernance des données, stratégie, coordination transverse et prototypage avec l’IA." />
   <script>
     // Une ouverture sans ancre commence en haut, même après une actualisation.
     // Les liens directs vers une section conservent leur destination.
@@ -40,7 +40,7 @@
     .cta{position:relative;display:flex;flex-wrap:wrap;gap:12px;margin:0 48px 36px}
     .btn{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:12px 20px;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;line-height:1.4}
     .btn.primary{background:var(--blue);border-color:var(--blue);color:white}
-    header .btn.primary,#contact .btn.primary{background:var(--green);border-color:var(--green);color:#172c50}
+    header .btn.primary,#contact .btn.primary{background:var(--green);border-color:var(--green);color:#10213f}
     .btn.ghost,.btn.toggle{background:var(--card);color:var(--blue)}
     header .btn.ghost,header .btn.toggle{color:#fff;background:transparent;border-color:#9eacc2}
     [data-theme="dark"] .btn.ghost,[data-theme="dark"] .btn.toggle{color:#edf2fa}
@@ -115,6 +115,17 @@
     @media(max-width:800px){.head{grid-template-columns:minmax(0,1fr) 200px;gap:24px;padding:32px}.profile-frame{height:280px}.title-block h1{font-size:42px;letter-spacing:-2px}.cta{margin:0 32px 28px}.cols.two{grid-template-columns:1fr}.xp-body{padding-left:24px}summary.xp-head{grid-template-columns:110px minmax(0,1fr) 18px}}
     @media(max-width:560px){.wrap{padding:12px 18px 0}header{margin:0;border-radius:20px}.head{grid-template-columns:1fr;padding:30px 24px;gap:24px}.title-block h1{font-size:40px}.profile{justify-content:flex-start}.profile-frame{width:160px;height:190px;border-radius:8px}.subtitle{font-size:18px}.cta{margin:0 24px 28px}.section-nav{gap:8px;justify-content:flex-start}.section-nav a{font-size:13px;padding:8px 12px}section{padding:32px 0}summary.xp-head{grid-template-columns:minmax(0,1fr) 18px;gap:8px;padding:10px 12px}.xp-head>div:nth-child(2){grid-column:1;grid-row:2}.xp-head .when{grid-column:1;grid-row:1}.xp-head .chev{grid-column:2;grid-row:1}.xp-body{padding:0 14px 16px}.facts{grid-template-columns:1fr;gap:0}.micro{padding:16px}.lead{font-size:20px}#contact{margin:12px 0 0;padding:30px 24px;border-radius:20px}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+    .governance-proof{margin:24px 0 0;padding:20px 24px;background:var(--soft);border-left:3px solid var(--green);border-radius:0 14px 14px 0}
+    .project-grid{align-items:start}
+    .eyebrow{color:var(--accent);font-size:13px;font-weight:750;letter-spacing:.4px;margin-bottom:12px}
+    .project-stage{font-size:14px;font-weight:650;color:var(--muted);padding:10px 0;border-top:1px solid var(--line)}
+    .case-details{margin:0}
+    .case-details dt{font-size:15px;font-weight:750;color:var(--accent);margin-top:20px}
+    .case-details dd{margin:6px 0 0}
+    .subsection-title{margin-top:38px}
+    .languages-title{font-size:20px;margin:26px 0 14px;color:var(--muted)}
+    .skill-grid p{margin-bottom:0}
+    @media(max-width:560px){.governance-proof{padding:18px}.project-card summary{align-items:flex-start}.case-details dd{overflow-wrap:anywhere}}
 </style>
 </head>
 <body>
@@ -129,18 +140,18 @@
             <div class="chip">03.05.1995</div>
             <div class="chip">Permis B</div>
             <div class="chip">Clermont-Ferrand</div>
-            <div class="micro">Depuis août 2025 à Clermont School of Business, je contribue à faire émerger et à structurer la fonction Data de l’établissement.<br><br>Je pars des besoins métiers et des priorités stratégiques pour cadrer des solutions utiles à la décision, en collaboration avec la direction générale, les équipes opérationnelles et l’IT.</div>
+            <div class="micro">Responsable Data orienté métier et stratégie, je contribue depuis août 2025 à structurer la fonction Data de Clermont School of Business.<br><br>Avec les métiers, la direction générale et l’IT, je construis une démarche de gouvernance et transforme les besoins en solutions testables : cadrer, prototyper, apprendre des usages et préparer l’intégration.</div>
           </div>
         </div>
         <div class="profile">
           <div class="profile-frame">
-            <img class="profile-pic" alt="Photo d'Ugo Meresse" src="807FC421-3420-4BFE-8679-40570EA16154.jpeg"/>
+            <img class="profile-pic" alt="Photo d'Ugo Meresse" width="1126" height="1500" src="807FC421-3420-4BFE-8679-40570EA16154.jpeg"/>
           </div>
         </div>
       </div>
       <div class="cta">
         <a class="btn primary" href="#contact">Me contacter</a>
-        <a class="btn ghost" href="#cv">Voir le CV</a>
+        <a class="btn ghost" href="#cv" aria-label="Voir le CV interactif : expériences et compétences">Voir le CV</a>
         <button class="btn toggle" type="button" id="modeToggle" aria-pressed="false">Mode sombre</button>
       </div>
     </header>
@@ -152,14 +163,14 @@
       <section id="experiences">
         <h2>Expériences professionnelles</h2>
         <div class="xp-controls">
-          <button class="btn toggle" id="expandAll" type="button">Tout développer</button>
-          <button class="btn toggle" id="collapseAll" type="button">Tout réduire</button>
+          <button class="btn toggle" id="expandAll" type="button" aria-controls="experience-list engagements-list">Tout développer</button>
+          <button class="btn toggle" id="collapseAll" type="button" aria-controls="experience-list engagements-list">Tout réduire</button>
         </div>
-        <div class="xp">
+        <div class="xp" id="experience-list">
           <details class="xp-item" open>
             <summary class="xp-head">
               <div class="when">Depuis août 2025</div>
-              <div><div class="role">Head of Insights & Data (Études & Data)</div><div class="org">Clermont School of Business</div></div>
+              <div><div class="role">Head of Insights &amp; Data</div><div class="org">Clermont School of Business</div></div>
               <svg aria-hidden="true" class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </summary>
             <div class="xp-body">
@@ -233,7 +244,7 @@
               <svg aria-hidden="true" class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </summary>
             <div class="xp-body">
-              <p class="desc">Création et direction d’un Bike Park Indoor de 4000 m² (loisirs sportifs, restauration, séminaires).</p>
+              <p class="desc">Création et direction d’un Bike Park Indoor de 4 000 m² (loisirs sportifs, restauration, séminaires).</p>
               <ul class="bullets"><li>Investissement supérieur à 1 M€ et management d’une équipe de 7 collaborateurs.</li><li>Développement d’un équipement accueillant plus de 14 000 visiteurs en 2021.</li><li>Lauréat du Trophée des Entreprises La Montagne 2021.</li></ul>
             </div>
           </details>
@@ -258,17 +269,17 @@
         </div>
       </section>
 
-      <section id="gouvernance">
-        <h2>Gouvernance des données</h2>
-        <p class="lead">Donner un cadre commun pour rendre la donnée utile.</p>
-        <p>Pour moi, la gouvernance commence par une compréhension des métiers : quelles décisions doivent-ils prendre, de quelles données ont-ils besoin et qui peut en garantir la qualité ? Mon rôle consiste à relier ces besoins à une démarche partagée avec la direction et l’IT.</p>
+      <section id="gouvernance" aria-labelledby="gouvernance-title">
+        <h2 id="gouvernance-title">Gouvernance des données</h2>
+        <p class="lead">Relier les décisions, les données et ceux qui les font vivre.</p>
+        <p>Ma démarche part des usages. Je cherche à comprendre les décisions à éclairer, à donner des repères communs aux équipes et à construire avec elles un cadre qui serve le pilotage de l’organisation.</p>
         <div class="cols two">
-          <div class="micro"><h3>Traduire les besoins</h3><p>Écouter les équipes, clarifier les usages attendus et les traduire en un cadrage fonctionnel qui permette d’avancer ensemble.</p></div>
-          <div class="micro"><h3>Créer des repères partagés</h3><p>Travailler sur les définitions, la fiabilité des données et les responsabilités ; structurer l’identification des Data Owners, Data Stewards et utilisateurs.</p></div>
-          <div class="micro"><h3>Faire évoluer les pratiques</h3><p>Accompagner l’acculturation et l’adoption en donnant du sens aux changements et en les reliant aux besoins du quotidien.</p></div>
-          <div class="micro"><h3>Construire avec l’IT</h3><p>Préciser les données d’entrée et de sortie, anticiper les évolutions et préparer l’intégration avec les compétences techniques de l’IT.</p></div>
+          <div class="micro"><h3>Comprendre les besoins métier</h3><p>Partir des décisions à prendre et des priorités stratégiques pour identifier les données nécessaires. Traduire ces attentes en usages et en besoins fonctionnels partagés.</p></div>
+          <div class="micro"><h3>Clarifier les responsabilités</h3><p>Structurer l’identification des Data Owners, Data Stewards et utilisateurs. Clarifier le rôle de chacun dans la définition, la qualité et l’utilisation des données.</p></div>
+          <div class="micro"><h3>Fiabiliser et harmoniser</h3><p>Travailler sur les définitions communes, la qualité des données et la cohérence des indicateurs pour rendre leur exploitation plus fiable et utile au pilotage.</p></div>
+          <div class="micro"><h3>Accompagner le changement avec l’IT</h3><p>Développer l’acculturation, donner du sens aux nouvelles pratiques et relier les besoins fonctionnels aux possibilités d’intégration, en collaboration avec l’IT.</p></div>
         </div>
-        <details><summary>Une mise en pratique à Clermont School of Business</summary><p>J’ai contribué à faire émerger et à structurer la fonction Data dans un établissement qui ne disposait auparavant ni de fonction dédiée ni de gouvernance organisée. La direction générale a validé la démarche proposée, son calendrier et les modalités de collaboration avec l’IT. Cette gouvernance est en cours de construction.</p></details>
+        <p class="governance-proof"><strong>Une démarche engagée à Clermont School of Business.</strong> J’ai plaidé auprès de la direction générale pour la création d’une gouvernance de la donnée dans un établissement auparavant sans fonction Data dédiée ni gouvernance organisée. Cette fonction m’a été confiée avec une vision transverse des métiers, pour relier leurs besoins aux priorités de l’établissement et structurer la démarche avec la direction et l’IT. La direction générale a validé le programme de gouvernance, son calendrier et les modalités de collaboration avec l’IT.</p>
       </section>
 
       <section id="projets">
@@ -277,37 +288,37 @@
         <p>J’utilise l’IA pour approfondir un besoin, structurer une réponse et construire un prototype que l’on peut tester. Cette façon de travailler me permet de confronter les idées aux usages et d’affiner les fonctionnalités avec les interlocuteurs concernés.</p>
         <div class="taglist" aria-label="Compétences mobilisées"><span class="tag">Cadrage fonctionnel</span><span class="tag">Structuration des données</span><span class="tag">Prototypage avec l’IA</span><span class="tag">Tests d’usage</span><span class="tag">Collaboration avec l’IT</span></div>
         <p>ChatGPT accompagne ma réflexion et mon analyse ; ChatGPT Work m’aide à structurer les projets et les spécifications ; Codex me permet de développer des prototypes fonctionnels. J’articule ce travail avec l’expertise technique de l’IT.</p>
-        <div class="cols two">
-          <article class="micro">
-            <h3>Plateforme de KPI stratégiques</h3>
-            <p class="status">Construire un langage commun pour piloter la stratégie</p>
-            <p>Un indicateur devient utile lorsque chacun comprend ce qu’il mesure, comment il est collecté et ce qu’il permet de décider. C’est cette logique qui guide la plateforme que j’ai conçue pour structurer la collecte et la gestion des KPI de l’établissement.</p>
-            <p>J’ai traduit ce besoin en un <strong>prototype fonctionnel</strong>, en travaillant à la fois sur les données, leurs définitions et les usages attendus. L’objectif : préparer un dispositif partagé pour accompagner le prochain plan stratégique.</p>
+        <div class="cols two project-grid">
+          <article class="micro project-card" aria-labelledby="kpi-title">
+            <p class="eyebrow">Pilotage stratégique</p>
+            <h3 id="kpi-title">Plateforme de KPI stratégiques</h3>
+            <p>Donner aux indicateurs des définitions partagées et organiser leur collecte pour préparer le pilotage du prochain plan stratégique.</p>
+            <p class="project-stage">Prototype fonctionnel localement</p>
             <details>
-              <summary>Découvrir la démarche et mon apport</summary>
-              <h4>Penser le dispositif avant l’outil</h4>
-              <p>Mon cadrage porte sur l’ensemble du parcours de l’indicateur : sa définition, les données nécessaires à son calcul, leur collecte, leur historisation et leur utilisation dans le reporting. Cette réflexion vise à rendre les indicateurs cohérents et exploitables dans le temps.</p>
-              <h4>Donner une forme concrète au besoin métier</h4>
-              <p>J’ai structuré les données d’entrée et de sortie, puis développé le prototype avec l’aide de l’IA et de Codex. Cette mise en pratique permet de matérialiser le fonctionnement attendu et de préciser les évolutions possibles, notamment les connexions aux outils existants et les possibilités d’automatisation.</p>
-              <h4>Relier vision stratégique et préparation technique</h4>
-              <p>J’ai présenté la démarche à la direction générale, qui l’a validée, et engagé la collaboration avec l’IT pour préparer son intégration au système d’information.</p>
-              <p><strong>Ce projet illustre ma capacité à articuler gouvernance des données, cadrage fonctionnel et pilotage stratégique autour d’un besoin concret.</strong></p>
+              <summary>Du besoin au prototype KPI</summary>
+              <dl class="case-details">
+                <dt>Le besoin</dt><dd>Rendre cohérents le recueil, la définition, l’historisation et le reporting des KPI, afin de disposer de repères communs pour le pilotage.</dd>
+                <dt>Mon rôle</dt><dd>Cadrer les besoins fonctionnels, structurer les données d’entrée et de sortie et définir le fonctionnement attendu. J’ai présenté la démarche à la direction générale, qui l’a validée.</dd>
+                <dt>La solution prototypée</dt><dd>Une plateforme fonctionnelle conçue avec l’aide de l’IA et de Codex. Le cadrage couvre le parcours de l’indicateur, de sa définition à son utilisation dans le reporting, et anticipe les connexions aux outils existants.</dd>
+                <dt>La valeur attendue</dt><dd>Un référentiel d’indicateurs plus fiable, des définitions partagées et une collecte mieux structurée pour faciliter les décisions et le suivi de la stratégie.</dd>
+                <dt>Les prochaines étapes</dt><dd>Poursuivre les échanges avec l’IT pour préparer l’intégration au système d’information et étudier les possibilités d’automatisation. Cette intégration reste à réaliser.</dd>
+              </dl>
             </details>
           </article>
-          <article class="micro">
-            <h3>Career Explorer</h3>
-            <p class="status">Relier les aspirations à des perspectives professionnelles concrètes</p>
-            <p>Comment aider un étudiant à se projeter dans un métier, puis à comprendre les parcours qui peuvent l’y conduire ? J’ai conçu Career Explorer pour rapprocher ses aspirations d’exemples d’alumni, de choix de formation et de perspectives de carrière.</p>
-            <p>Le <strong>prototype fonctionnel</strong> propose deux façons d’explorer les métiers : un parcours guidé par secteur et fonction, ou une recherche à partir de ce que l’étudiant aime et n’aime pas. Les deux donnent accès aux mêmes fiches détaillées.</p>
+          <article class="micro project-card" aria-labelledby="career-title">
+            <p class="eyebrow">Orientation et parcours utilisateur</p>
+            <h3 id="career-title">Career Explorer</h3>
+            <p>Relier les aspirations d’un étudiant aux métiers, aux parcours d’alumni et aux choix de formation pour l’aider à se projeter dans sa vie professionnelle.</p>
+            <p class="project-stage">Prototype fonctionnel · Intégration à préparer</p>
             <details>
-              <summary>Découvrir le parcours et mon apport</summary>
-              <h4>Partir de la manière dont l’étudiant se projette</h4>
-              <p>Une première entrée suit le chemin secteur d’activité → type de fonction → métier. Une seconde permet d’exprimer ses goûts en langage naturel ; une recherche par mots-clés identifie alors des métiers correspondants.</p>
-              <h4>Rassembler les informations utiles au même endroit</h4>
-              <p>Chaque fiche métier réunit trois alumni exerçant la fonction, les spécialisations de master pertinentes, des données salariales enrichies à partir de sources open data et une projection des six premières années de carrière avec les compétences nécessaires. L’enjeu est de donner à l’étudiant plusieurs repères complémentaires pour réfléchir à son orientation.</p>
-              <h4>Concevoir le service et éprouver son fonctionnement</h4>
-              <p>J’ai mené le cadrage fonctionnel dans ChatGPT Work, structuré les données d’entrée et de sortie, puis développé le prototype avec Codex. Les tests d’usage ont permis des ajustements fonctionnels légers. J’ai également anticipé les évolutions et les besoins de connectivité avec l’IT, en vue d’une intégration au Career Center.</p>
-              <p><strong>Ce projet illustre ma capacité à organiser des données de sources différentes autour d’un parcours utilisateur et à transformer un besoin métier en solution testable.</strong></p>
+              <summary>Du parcours étudiant au prototype</summary>
+              <dl class="case-details">
+                <dt>Le besoin</dt><dd>Donner plusieurs repères concrets pour explorer les métiers et identifier des parcours cohérents avec les préférences de l’étudiant.</dd>
+                <dt>Mon rôle</dt><dd>Approfondir le cadrage fonctionnel et le parcours utilisateur dans ChatGPT Work, structurer les données d’entrée et de sortie, puis développer le prototype avec Codex. Les tests d’usage ont conduit à des ajustements fonctionnels légers.</dd>
+                <dt>La solution prototypée</dt><dd>Deux entrées donnent accès aux mêmes fiches : un parcours secteur → fonction → métier, ou une recherche par mots-clés à partir des goûts exprimés en langage naturel. Chaque fiche associe trois alumni, les spécialisations de master pertinentes, des données salariales enrichies à partir de sources open data et une projection des six premières années de carrière avec les compétences nécessaires.</dd>
+                <dt>La valeur attendue</dt><dd>Rassembler des informations complémentaires dans un parcours lisible pour rapprocher les aspirations, les formations et les perspectives professionnelles.</dd>
+                <dt>Les prochaines étapes</dt><dd>Préparer avec l’IT l’intégration au Career Center et les besoins de connectivité. L’IT a validé l’intégrabilité du prototype ; l’intégration et le déploiement restent à réaliser.</dd>
+              </dl>
             </details>
           </article>
         </div>
@@ -321,7 +332,14 @@
           <div class="micro"><h3>Construire une analyse exploitable</h3><p>Articuler méthodologie, collecte et interprétation pour identifier des leviers d’amélioration et éclairer les décisions.</p></div>
           <div class="micro"><h3>Faire travailler les expertises ensemble</h3><p>Coordonner les contributions des métiers, partager la compréhension des méthodologies et faire émerger des plans d’action.</p></div>
         </div>
-        <details><summary>Des exemples dans mon parcours</summary><ul class="bullets"><li>Modernisation des dispositifs d’enquête avec un partenariat Ipsos à Clermont School of Business.</li><li>Analyse des méthodologies de classement, fiabilisation des données et identification de plans d’action avec les équipes.</li><li>Depuis juillet 2024, pilotage du CODEX Classements et animation d’un réseau national d’experts au sein de la Conférence des Directeurs des Écoles Françaises de Management.</li></ul></details>
+        <article class="micro" style="margin-top:24px" aria-labelledby="barometre-title">
+          <p class="eyebrow">Enquêtes et écoute des parties prenantes</p>
+          <h3 id="barometre-title">Baromètre des parties prenantes</h3>
+          <p>À la demande de la direction, j’ai conçu et déployé un baromètre visant à mesurer la satisfaction de l’ensemble des parties prenantes de Clermont School of Business. Ce dispositif s’inscrit dans le processus d’amélioration continue de l’école.</p>
+          <p>Pour concrétiser cette démarche, nous avons mis en place <strong>Skeepers</strong> et collaboré avec <strong>Ipsos</strong>. Mon rôle couvre la conception et le déploiement du dispositif, ainsi que l’analyse des résultats.</p>
+          <p>Je contextualise les données pour donner du sens aux résultats et permettre aux services de définir des actions correctives. Cette démarche relie l’écoute des parties prenantes, l’analyse et l’amélioration des pratiques.</p>
+        </article>
+        <details><summary>Classements : analyse et coordination</summary><ul class="bullets"><li>Analyse des méthodologies de classement, fiabilisation des données et identification de plans d’action avec les équipes.</li><li>Depuis juillet 2024, pilotage du CODEX Classements et animation d’un réseau national d’experts au sein de la Conférence des Directeurs des Écoles Françaises de Management.</li></ul></details>
       </section>
 
       <section id="management">
@@ -347,39 +365,31 @@
       </section>
 
       <section id="competences">
-        <h2>Formation</h2>
+        <h2>Compétences</h2>
+        <div class="cols two skill-grid">
+          <div class="micro"><h3>Gouvernance et qualité des données</h3><p>Structuration d’une démarche de Data Governance, clarification des rôles, définitions partagées et fiabilisation des données.</p></div>
+          <div class="micro"><h3>Pilotage stratégique et performance</h3><p>Indicateurs stratégiques, enquêtes et études, analyse des méthodologies de classement et identification de leviers d’amélioration.</p></div>
+          <div class="micro"><h3>Cadrage fonctionnel et projets transverses</h3><p>Traduction des besoins métiers, structuration des entrées et sorties, coordination des parties prenantes et préparation de l’intégration avec l’IT.</p></div>
+          <div class="micro"><h3>Acculturation et conduite du changement</h3><p>Accompagnement des équipes, adoption de nouvelles pratiques et animation d’un réseau national d’experts.</p></div>
+          <div class="micro"><h3>Prototypage assisté par l’IA</h3><p>Analyse et cadrage avec ChatGPT et ChatGPT Work, réalisation de prototypes avec Codex, tests d’usage et amélioration itérative.</p></div>
+          <div class="micro"><h3>Outils et environnements utilisés</h3>
+            <p><strong>Data visualisation :</strong> Strategy, Power BI.<br><strong>IA :</strong> ChatGPT, ChatGPT Work, Codex, Copilot.<br><strong>Enquêtes :</strong> Skeepers, Sphinx, Forms.<br><strong>Autres outils :</strong> Office 365, Suite Adobe, Final Cut.</p>
+          </div>
+        </div>
+        <h2 class="subsection-title">Formation</h2>
         <div class="cardy">
-          <div class="micro"><strong>2024</strong> — Certification BI & Data, <em class="org">Clermont School of Business</em></div>
+          <div class="micro"><strong>2024</strong> — Certification BI &amp; Data, <em class="org">Clermont School of Business</em></div>
           <div class="micro"><strong>2020</strong> — Master en Management (PGE), <em class="org">Clermont School of Business</em></div>
-          <div class="micro"><strong>2019</strong> — TOEIC 960</div>
           <div class="micro"><strong>2018</strong> — Licence Management du Sport, <em class="org">UFR STAPS Clermont-Ferrand</em></div>
-          <div class="micro"><strong>2013-2014</strong> — Rotary Youth Exchange, <em class="org">Finlande</em></div>
+          <div class="micro"><strong>2013–2014</strong> — Rotary Youth Exchange, <em class="org">Finlande</em></div>
         </div>
-
-        <h2 style="margin-top:22px">Compétences</h2>
-        <div class="cols two">
-          <div>
-            <h3 style="margin:6px 0 6px;color:var(--muted);font-size:16px">Outils</h3>
-            <div class="taglist"><span class="tag">Data Visualisation</span><span class="tag">Strategy</span><span class="tag">Power BI</span><span class="tag">ChatGPT</span><span class="tag">ChatGPT Work</span><span class="tag">Codex — prototypage</span><span class="tag">Copilot</span><span class="tag">Skeepers</span><span class="tag">Sphinx</span><span class="tag">Forms</span><span class="tag">Office 365</span><span class="tag">Suite Adobe</span><span class="tag">Final Cut</span></div>
-          </div>
-          <div>
-            <h3 style="margin:6px 0 6px;color:var(--muted);font-size:16px">Stratégie</h3>
-            <div class="taglist"><span class="tag">Entrepreneuriat</span><span class="tag">Conduite du changement</span><span class="tag">Data Governance</span><span class="tag">Data Quality</span><span class="tag">Acculturation Data</span><span class="tag">Pilotage de la performance</span><span class="tag">Gestion de projet transverse</span></div>
-          </div>
-        </div>
-
-        <div class="cols" style="margin-top:16px">
-          <div>
-            <h3 style="margin:6px 0 6px;color:var(--muted);font-size:16px">Langues</h3>
-            <div class="taglist"><span class="tag"><strong>Anglais courant</strong></span><span class="tag">Allemand</span><span class="tag">Finnois</span></div>
-          </div>
-
-        </div>
+        <h3 class="languages-title">Langues</h3>
+        <div class="taglist"><span class="tag"><strong>Anglais courant</strong> · TOEIC 960 (2019)</span><span class="tag">Allemand</span><span class="tag">Finnois</span></div>
       </section>
 
       <section>
         <h2>Bénévolat</h2>
-        <div class="xp">
+        <div class="xp" id="engagements-list">
           <details class="xp-item"><summary class="xp-head"><div class="when">Depuis 2018</div><div><div class="role">Membre du conseil d’administration</div><div class="org">Clermont School of Business Alumni</div></div></summary></details>
           <details class="xp-item"><summary class="xp-head"><div class="when">2014 – 2021</div><div><div class="role">Entraîneur VTT</div><div class="org">XC63</div></div></summary></details>
           <details class="xp-item"><summary class="xp-head"><div class="when">2017 – 2018</div><div><div class="role">Vice-président communication</div><div class="org">BDE STAPS Clermont</div></div></summary></details>
@@ -404,10 +414,14 @@
     const isDark=()=>root.getAttribute('data-theme')==='dark';
     const setDark=(v)=>{root.setAttribute('data-theme',v?'dark':'light');toggle.textContent=v?'Mode clair':'Mode sombre';toggle.setAttribute('aria-pressed',String(v));}
     toggle?.addEventListener('click',()=>setDark(!isDark()));
-    try{const saved=localStorage.getItem('theme');setDark(saved ? saved==='dark' : window.matchMedia('(prefers-color-scheme: dark)').matches);toggle?.addEventListener('click',()=>{try{localStorage.setItem('theme',isDark()?'dark':'light');}catch(e){}});}catch(e){}
+    let savedTheme;
+    try{savedTheme=localStorage.getItem('theme');}catch(e){}
+    setDark(savedTheme==='dark' || (savedTheme!=='light' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+    toggle?.addEventListener('click',()=>{try{localStorage.setItem('theme',isDark()?'dark':'light');}catch(e){}});
     const backTop=document.getElementById('backTop');
     const updateBackTop=()=>{backTop.hidden=window.scrollY<500;};
     window.addEventListener('scroll',updateBackTop,{passive:true});
+    window.addEventListener('pageshow',updateBackTop);
     updateBackTop();
     backTop.addEventListener('click',(event)=>{
       event.preventDefault();
